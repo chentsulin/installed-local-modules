@@ -3,7 +3,7 @@
 var execa = require('execa');
 
 module.exports = function installedLocalModules() {
-  return execa.shell('npm ls --parseable')
+  return execa.shell('npm ls --parseable || true')
     .then(res => res.stdout.split('\n')
       .filter((line, i) => i !== 0)
       .map(line => {
